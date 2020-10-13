@@ -5,6 +5,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import useCachedResources from './hooks/useCachedResources'
 // Navigation
 import Navigation from './navigation'
+// Store
 
 export default function App() {
   const isLoadingComplete = useCachedResources()
@@ -12,6 +13,7 @@ export default function App() {
   if (isLoadingComplete) {
     return (
       // ノッチとかの処理をしてくれる
+
       <SafeAreaProvider>
         <Navigation />
         <StatusBar />
