@@ -13,10 +13,10 @@ type Props = {
   navigation: StackNavigationProp<BottomTabParamList, 'Home'>
 }
 export default function HomeScreen({ navigation }: Props) {
-  const user = useSelector((state) => state.user)
+  const authUser = useSelector((state) => state.authUser)
 
   const handleLogOut = () => {
-    dispatch.user.logOut()
+    dispatch.authUser.logOut()
   }
   const goNavigate = () => {
     navigation.navigate('Settings')
@@ -25,7 +25,7 @@ export default function HomeScreen({ navigation }: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Home</Text>
-      {user ? <Text>user: {user.name}</Text> : <Text>user: null</Text>}
+      {authUser.isLoggedIn ? <Text>authUser: {authUser.name}</Text> : <Text>not Logged in</Text>}
       <View
         style={{
           width: '100%',

@@ -1,10 +1,21 @@
 import * as React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
-
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
+import { useSelector } from 'react-redux'
+// Styles
+import GlobalStyles from '../constants/GlobalStyles'
+// Store
+import { dispatch } from '../store'
 export default function SettingsScreen() {
+  const authUser = useSelector((state) => state.authUser)
+  const handleLogIn = () => {
+    dispatch.authUser.logIn()
+  }
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Three Screen</Text>
+      {authUser.isLoggedIn ? <Text>authUser: {authUser.name}</Text> : <Text>not logged in</Text>}
+      <TouchableOpacity style={GlobalStyles.appBtn} onPress={handleLogIn}>
+        <Text style={GlobalStyles.appBtn__text}>Log in</Text>
+      </TouchableOpacity>
     </View>
   )
 }
