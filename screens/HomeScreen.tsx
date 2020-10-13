@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 // Types
 import { BottomTabParamList } from '../types'
 // Store
-import { dispatch } from '../store'
+import { dispatch, RootState } from '../store'
 // Constants
 import GlobalStyles from '../constants/GlobalStyles'
 
@@ -13,7 +13,7 @@ type Props = {
   navigation: StackNavigationProp<BottomTabParamList, 'Home'>
 }
 export default function HomeScreen({ navigation }: Props) {
-  const authUser = useSelector((state) => state.authUser)
+  const authUser = useSelector((state: RootState) => state.authUser)
 
   const handleLogOut = () => {
     dispatch.authUser.logOut()

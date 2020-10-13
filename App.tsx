@@ -15,12 +15,12 @@ export default function App() {
   if (isLoadingComplete) {
     return (
       // ノッチとかの処理をしてくれる
-      <Provider store={store}>
-        <SafeAreaProvider>
+      <SafeAreaProvider>
+        <Provider store={store}>
           <Navigation />
-          <StatusBar />
-        </SafeAreaProvider>
-      </Provider>
+        </Provider>
+        <StatusBar />
+      </SafeAreaProvider>
     )
   }
   return null

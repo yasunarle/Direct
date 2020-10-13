@@ -9,7 +9,7 @@ interface IAuthUser {
 // interface IAuthUserState {
 //   authUser: IAuthUser | null
 // }
-const yasunari: IAuthUser = {
+const sampleState: IAuthUser = {
   isLoggedIn: true,
   name: 'yasunari',
   id: 'hogehoge',
@@ -29,7 +29,7 @@ const authUser = createModel({
   },
   effects: (dispatch: any) => ({
     logIn(payload: IAuthUser, _rootState: any) {
-      dispatch.authUser.setUser(yasunari)
+      dispatch.authUser.setUser(sampleState)
     },
     logOut() {
       dispatch.authUser.setUser(INITIAL_STATE)

@@ -7,6 +7,7 @@ export interface IUserState {
 }
 export type RootStackParamList = {
   Root: undefined
+  Login: undefined
   NotFound: undefined
 }
 

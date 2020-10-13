@@ -1,6 +1,7 @@
+import * as React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import * as React from 'react'
+import { useSelector } from 'react-redux'
 // Navigations
 import BottomTabNavigator from './BottomTabNavigator'
 import LinkingConfiguration from './LinkingConfiguration'
@@ -8,6 +9,9 @@ import LinkingConfiguration from './LinkingConfiguration'
 import { RootStackParamList } from '../types'
 // Screens
 import NotFoundScreen from '../screens/NotFoundScreen'
+import LoginScreen from '../screens/LoginScreen'
+// Store
+import { dispatch, RootState } from '../store'
 
 export default function Navigation() {
   return (
@@ -20,9 +24,17 @@ export default function Navigation() {
 const Stack = createStackNavigator<RootStackParamList>()
 
 function RootNavigator() {
+  const authUser = useSelector((state: RootState) => state.authUser)
+
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Root" component={BottomTabNavigator} />
+      {authUser.isLoggedIn ? (
+        <Stack.Screen name="Root" component={BottomTabNavigator} />
+      ) : (
+        <Stack.Screen name="Login" component={LoginScreen} />
+      )}
+      {/* <Stack.Screen name="Root" component={BottomTabNavigator} />
+      <Stack.Screen name="Login" component={LoginScreen} /> */}
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   )
