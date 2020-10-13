@@ -3,11 +3,10 @@ import { StyleSheet } from 'react-native'
 
 import { Text, View } from '../components/Themed'
 
-export default function TabOneScreen() {
+export default function TabThreeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <Text style={styles.title}>Three Screen</Text>
     </View>
   )
 }
