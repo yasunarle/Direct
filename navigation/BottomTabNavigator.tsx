@@ -3,12 +3,12 @@ import { Ionicons } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
 // Screens
-import TabOneScreen from '../screens/TabOneScreen'
-import TabTwoScreen from '../screens/TabTwoScreen'
-import TabThreeScreen from '../screens/TabThreeScreen'
+import HomeScreen from '../screens/HomeScreen'
+import TalkScreen from '../screens/TalkScreen'
+import SettingsScreen from '../screens/SettingsScreen'
 import SearchScreen from '../screens/SearchScreen/index'
 // Types
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types'
+import { BottomTabParamList, HomeParamList, TalkParamList } from '../types'
 
 // Note: Setup
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
@@ -20,32 +20,24 @@ const TabBarIcon = (props: TabBarIconProps) => {
 }
 const activeColor = '#7f5af0'
 
-// Note: TabOne
-const TabOneStack = createStackNavigator<TabOneParamList>()
+// Note: HomeScreen
+const HomeStack = createStackNavigator<HomeParamList>()
 
-function TabOneNavigator() {
+function HomeNavigator() {
   return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
-      />
-    </TabOneStack.Navigator>
+    <HomeStack.Navigator>
+      <HomeStack.Screen name="Home" component={HomeScreen} options={{ headerTitle: 'ホーム' }} />
+    </HomeStack.Navigator>
   )
 }
-// Note: Tab Two
-const TabTwoStack = createStackNavigator<TabTwoParamList>()
+// Note: TalkScreen
+const TalkStack = createStackNavigator<TalkParamList>()
 
-function TabTwoNavigator() {
+function TalkNavigator() {
   return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
-      />
-    </TabTwoStack.Navigator>
+    <TalkStack.Navigator>
+      <TalkStack.Screen name="Talk" component={TalkScreen} options={{ headerTitle: 'トーク' }} />
+    </TalkStack.Navigator>
   )
 }
 // Note: SettingsSreen
@@ -56,7 +48,7 @@ function SettingsNavigator() {
     <SettingsStack.Navigator>
       <SettingsStack.Screen
         name="SettingsScreen"
-        component={TabThreeScreen}
+        component={SettingsScreen}
         options={{ headerTitle: 'Settings' }}
       ></SettingsStack.Screen>
     </SettingsStack.Navigator>
@@ -80,17 +72,17 @@ function SearchNavigator() {
 // Note: export default
 export default function BottomTabNavigator() {
   return (
-    <BottomTab.Navigator initialRouteName="TabOne" tabBarOptions={{ activeTintColor: activeColor }}>
+    <BottomTab.Navigator initialRouteName="Home" tabBarOptions={{ activeTintColor: activeColor }}>
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneNavigator}
+        name="Home"
+        component={HomeNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-contact" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
+        name="Talk"
+        component={TalkNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}

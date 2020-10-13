@@ -1,19 +1,26 @@
+export interface IUser {
+  id: string
+  name: string
+}
+export interface IUserState {
+  user: IUser | null
+}
 export type RootStackParamList = {
   Root: undefined
   NotFound: undefined
 }
 
 export type BottomTabParamList = {
-  TabOne: undefined
-  TabTwo: undefined
+  Home: IUser
   Search: undefined
-  Settings: undefined
+  Talk: IUser
+  Settings: IUser
 }
 
-export type TabOneParamList = {
-  TabOneScreen: undefined
+export type HomeParamList = {
+  Home: undefined
 }
 
-export type TabTwoParamList = {
-  TabTwoScreen: undefined
+export type TalkParamList = {
+  Talk: undefined
 }
