@@ -10,6 +10,7 @@ import { RootStackParamList } from '../../types'
 // Screens
 import NotFoundScreen from '../screens/NotFoundScreen'
 import LoginScreen from '../screens/LoginScreen'
+import SignupScreen from '../screens/SignupScreen'
 // Store
 import { dispatch, RootState } from '../store'
 // Constants
@@ -35,6 +36,7 @@ function RootNavigator() {
       ) : (
         <Stack.Screen name="Login" component={LoginScreen} />
       )}
+      <Stack.Screen name="Signup" component={SignupScreen} />
       {/* <Stack.Screen name="Root" component={BottomTabNavigator} />
       <Stack.Screen name="Login" component={LoginScreen} /> */}
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />

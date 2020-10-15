@@ -17,6 +17,7 @@ import AppBotton from '../components/common/AppBotton'
 type Props = {
   navigation: StackNavigationProp<BottomTabParamList, 'Home'>
 }
+
 export default function HomeScreen({ navigation }: Props) {
   const authUser = useSelector((state: RootState) => state.authUser)
 

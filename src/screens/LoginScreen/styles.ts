@@ -28,6 +28,9 @@ const styles = StyleSheet.create({
     borderTopWidth: 0.6,
     backgroundColor: Colors.backgroundGray,
   },
+  bottomInformation__span: {
+    fontWeight: 'bold',
+  },
 })
 
 export default styles

@@ -1,10 +1,12 @@
-import { StackScreenProps } from '@react-navigation/stack'
 import React, { useEffect, useState } from 'react'
-import { Text, TouchableOpacity, View, TextInput } from 'react-native'
+import { StackNavigationProp } from '@react-navigation/stack'
+import { Text, View } from 'react-native'
 // Styles
 import GS from '../../utils/constants/GlobalStyles'
 import Colors from '../../utils/constants/Colors'
 import styles from './styles'
+// Types
+import { RootStackParamList } from '../../../types'
 // Store
 import { dispatch, RootState } from '../../store'
 // Components
@@ -13,7 +15,11 @@ import AppSpacer from '../../components/common/AppSpacer'
 import AppBotton from '../../components/common/AppBotton'
 import AppTextInput from '../../components/common/AppTextInput'
 
-export default function LoginScreen() {
+type Props = {
+  navigation: StackNavigationProp<RootStackParamList, 'Login'>
+}
+
+export default function LoginScreen({ navigation }: Props) {
   // Note: State
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -21,6 +27,9 @@ export default function LoginScreen() {
   // Note: Methods
   const handleLogin = () => {
     dispatch.authUser.logIn()
+  }
+  const handleGoSignIn = () => {
+    navigation.navigate('Signup')
   }
   // Note: useEffect
   useEffect(() => {
@@ -65,7 +74,12 @@ export default function LoginScreen() {
         <AppBotton content="Login" onPress={handleLogin} disabled={!isFullInputs} />
       </View>
       <View style={styles.bottomInformation}>
-        <Text>Directは初めてですか？登録はこちら</Text>
+        <Text>
+          Directは初めてですか？
+          <Text onPress={handleGoSignIn} style={styles.bottomInformation__span}>
+            登録はこちら
+          </Text>
+        </Text>
       </View>
     </View>
   )
