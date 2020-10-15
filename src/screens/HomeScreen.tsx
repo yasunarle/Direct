@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import { useSelector } from 'react-redux'
-import firebase from 'firebase'
 // Types
 import { BottomTabParamList } from '../../types'
 // Store
