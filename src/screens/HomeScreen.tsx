@@ -4,12 +4,12 @@ import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import { useSelector } from 'react-redux'
 import firebase from 'firebase'
 // Types
-import { BottomTabParamList } from '../types'
+import { BottomTabParamList } from '../../types'
 // Store
 import { dispatch, RootState } from '../store'
 // Constants
-import GlobalStyles from '../constants/GlobalStyles'
-import { auth } from '../constants/Firebase'
+import GlobalStyles from '../utils/constants/GlobalStyles'
+import { auth } from '../plugins/Firebase'
 
 type Props = {
   navigation: StackNavigationProp<BottomTabParamList, 'Home'>

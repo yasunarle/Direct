@@ -6,14 +6,14 @@ import { useSelector } from 'react-redux'
 import BottomTabNavigator from './BottomTabNavigator'
 import LinkingConfiguration from './LinkingConfiguration'
 // Types
-import { RootStackParamList } from '../types'
+import { RootStackParamList } from '../../types'
 // Screens
 import NotFoundScreen from '../screens/NotFoundScreen'
 import LoginScreen from '../screens/LoginScreen'
 // Store
 import { dispatch, RootState } from '../store'
 // Constants
-import '../constants/Firebase'
+import '../plugins/Firebase'
 
 export default function Navigation() {
   return (

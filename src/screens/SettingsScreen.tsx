@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
 import { useSelector } from 'react-redux'
 // Styles
-import GlobalStyles from '../constants/GlobalStyles'
+import GlobalStyles from '../utils/constants/GlobalStyles'
 // Store
 import { dispatch, RootState } from '../store'
 export default function SettingsScreen() {

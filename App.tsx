@@ -3,11 +3,11 @@ import React from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { Provider } from 'react-redux'
 // Hooks
-import useCachedResources from './hooks/useCachedResources'
+import useCachedResources from './src/hooks/useCachedResources'
 // Navigation
-import Navigation from './navigation'
+import Navigation from './src/navigation'
 // Store
-import store from './store'
+import store from './src/store'
 
 export default function App() {
   const isLoadingComplete = useCachedResources()

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { StackScreenProps } from '@react-navigation/stack'
 // Types
-import { BottomTabParamList } from '../types'
+import { BottomTabParamList } from '../../types'
 
 // Note: Setup
 type Props = StackScreenProps<BottomTabParamList, 'Talk'>
