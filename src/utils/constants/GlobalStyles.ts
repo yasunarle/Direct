@@ -2,6 +2,10 @@ import { StyleSheet } from 'react-native'
 // Constans
 import Colors from './Colors'
 const GlobalStyles = StyleSheet.create({
+  appTitle: {
+    color: Colors.lightNavy,
+    fontSize: 34,
+  },
   appBtn: {
     borderColor: Colors.white,
     backgroundColor: Colors.purple,

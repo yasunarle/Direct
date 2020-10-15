@@ -6,9 +6,9 @@ import { createStackNavigator } from '@react-navigation/stack'
 import HomeScreen from '../screens/HomeScreen'
 import TalkScreen from '../screens/TalkScreen'
 import SettingsScreen from '../screens/SettingsScreen'
-import SearchScreen from '../screens/SearchScreen/index'
+import SearchScreen from '../screens/SearchScreen'
 // Types
-import { BottomTabParamList, HomeParamList, TalkParamList } from '../types'
+import { BottomTabParamList, HomeParamList, TalkParamList } from '../../types'
 
 // Note: Setup
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
