@@ -15,7 +15,7 @@ export type BottomTabParamList = {
   Home: IUser
   Search: undefined
   Talk: IUser
-  Settings: IUser
+  Settings: undefined
 }
 
 export type HomeParamList = {

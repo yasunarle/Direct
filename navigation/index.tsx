@@ -12,6 +12,8 @@ import NotFoundScreen from '../screens/NotFoundScreen'
 import LoginScreen from '../screens/LoginScreen'
 // Store
 import { dispatch, RootState } from '../store'
+// Constants
+import '../constants/Firebase'
 
 export default function Navigation() {
   return (

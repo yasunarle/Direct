@@ -13,7 +13,7 @@ export default function LoginScreen() {
   }
   return (
     <View style={styles.container}>
-      <Text>Log in Screen</Text>
+      <Text>Direct</Text>
       <TouchableOpacity onPress={handleLogin} style={GS.appBtn}>
         <Text style={GS.appBtn__text}>login</Text>
       </TouchableOpacity>

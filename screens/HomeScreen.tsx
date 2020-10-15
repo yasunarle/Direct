@@ -1,13 +1,15 @@
-import * as React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import { useSelector } from 'react-redux'
+import firebase from 'firebase'
 // Types
 import { BottomTabParamList } from '../types'
 // Store
 import { dispatch, RootState } from '../store'
 // Constants
 import GlobalStyles from '../constants/GlobalStyles'
+import { auth } from '../constants/Firebase'
 
 type Props = {
   navigation: StackNavigationProp<BottomTabParamList, 'Home'>
@@ -15,13 +17,26 @@ type Props = {
 export default function HomeScreen({ navigation }: Props) {
   const authUser = useSelector((state: RootState) => state.authUser)
 
+  const [user, setUser] = useState(null)
+  // Methods
   const handleLogOut = () => {
     dispatch.authUser.logOut()
   }
   const goNavigate = () => {
     navigation.navigate('Settings')
   }
-
+  const addDB = () => {
+    // firebase.firestore().collection('users').doc().set({
+    //   name: 'test',
+    // })
+  }
+  // Note: useEffect
+  // useEffect(() => {
+  //   // onAuthStateChanged returns an unsubscriber
+  //   auth.onAuthStateChanged(async (res) => {
+  //     setUser(res)
+  //   })
+  // }, [])
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Home</Text>
@@ -43,6 +58,15 @@ export default function HomeScreen({ navigation }: Props) {
       ></View>
       <TouchableOpacity onPress={goNavigate}>
         <Text>Settings page</Text>
+      </TouchableOpacity>
+      <View
+        style={{
+          width: '100%',
+          height: 50,
+        }}
+      ></View>
+      <TouchableOpacity style={GlobalStyles.appBtn} onPress={addDB}>
+        <Text style={GlobalStyles.appBtn__text}>Add DB</Text>
       </TouchableOpacity>
     </View>
   )
