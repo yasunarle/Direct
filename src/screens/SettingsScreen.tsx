@@ -5,17 +5,21 @@ import { useSelector } from 'react-redux'
 import GlobalStyles from '../utils/constants/GlobalStyles'
 // Store
 import { dispatch, RootState } from '../store'
+// Components
+import AppBotton from '../components/common/AppBotton'
+
 export default function SettingsScreen() {
+  // State
   const authUser = useSelector((state: RootState) => state.authUser)
-  const handleLogIn = () => {
-    dispatch.authUser.logIn()
+
+  // Methods
+  const handleLogOut = () => {
+    dispatch.authUser.logOut()
   }
+
   return (
     <View style={styles.container}>
-      {authUser.isLoggedIn ? <Text>authUser: {authUser.name}</Text> : <Text>not logged in</Text>}
-      <TouchableOpacity style={GlobalStyles.appBtn} onPress={handleLogIn}>
-        <Text style={GlobalStyles.appBtn__text}>Log in</Text>
-      </TouchableOpacity>
+      <AppBotton content="log out" onPress={handleLogOut} />
     </View>
   )
 }

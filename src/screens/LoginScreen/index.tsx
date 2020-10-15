@@ -8,6 +8,7 @@ import styles from './styles'
 // Store
 import { dispatch, RootState } from '../../store'
 // Components
+import AppCenterContainer from '../../components/common/AppCenterContainer'
 import AppSpacer from '../../components/common/AppSpacer'
 import AppBotton from '../../components/common/AppBotton'
 import AppTextInput from '../../components/common/AppTextInput'
@@ -16,46 +17,28 @@ export default function LoginScreen() {
   // Note: State
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [isFullInputs, setIsFullInputs] = useState(false)
   // Note: Methods
   const handleLogin = () => {
     dispatch.authUser.logIn()
   }
+  // Note: useEffect
+  useEffect(() => {
+    if (email && password) {
+      setIsFullInputs(true)
+      return
+    }
+    setIsFullInputs(false)
+  }, [email, password])
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          width: '100%',
-          height: 200,
-          backgroundColor: Colors.navy,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
+      <AppCenterContainer backgroundColor={Colors.navy} height={200}>
         <Text style={GS.appTitle}>Direct</Text>
-      </View>
-      <View
-        style={{
-          width: '100%',
-          height: 0.8,
-          backgroundColor: Colors.borderNavy,
-        }}
-      ></View>
-      <View
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          padding: 20,
-        }}
-      >
-        <Text
-          style={{
-            fontSize: 30,
-            fontWeight: 'bold',
-          }}
-        >
-          新規アカウント登録
-        </Text>
-        <AppSpacer height={20} />
+      </AppCenterContainer>
+      <View style={styles.mainContant}>
+        <AppSpacer height={30} />
+        <Text style={styles.h1}>Login</Text>
+        <AppSpacer height={40} />
         <AppTextInput
           value={email}
           placeholder="メールアドレス"
@@ -68,6 +51,7 @@ export default function LoginScreen() {
         />
         <AppSpacer height={20} />
         <AppTextInput
+          isPassword={true}
           value={password}
           placeholder="password"
           onChangeText={(value) => {
@@ -77,23 +61,10 @@ export default function LoginScreen() {
             setPassword('')
           }}
         />
-        <AppSpacer height={20} />
-        <AppBotton content="Login" onPress={handleLogin} />
+        <AppSpacer height={60} />
+        <AppBotton content="Login" onPress={handleLogin} disabled={!isFullInputs} />
       </View>
-      {/* Bottom Footer */}
-      <View
-        style={{
-          width: '100%',
-          height: 52,
-          alignItems: 'center',
-          justifyContent: 'center',
-          position: 'absolute',
-          bottom: 0,
-          borderTopColor: 'lightgrey',
-          borderTopWidth: 0.6,
-          backgroundColor: Colors.backgroundGray,
-        }}
-      >
+      <View style={styles.bottomInformation}>
         <Text>Directは初めてですか？登録はこちら</Text>
       </View>
     </View>

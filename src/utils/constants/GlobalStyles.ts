@@ -3,12 +3,12 @@ import { StyleSheet } from 'react-native'
 import Colors from './Colors'
 const GlobalStyles = StyleSheet.create({
   appTitle: {
-    color: Colors.lightNavy,
+    color: Colors.white,
     fontSize: 34,
   },
   appBtn: {
     borderColor: Colors.white,
-    backgroundColor: Colors.purple,
+    backgroundColor: Colors.navy,
     borderWidth: 2,
     padding: 20,
     borderRadius: 4,

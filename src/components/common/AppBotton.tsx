@@ -5,18 +5,17 @@ import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolic
 import Colors from '../../utils/constants/Colors'
 
 type Props = {
+  disabled?: boolean
   content: string
   onPress: () => any
 }
 
-// export
-
-const AppBotton = ({ content, onPress }: Props) => {
+// Note: Export
+const AppBotton = ({ content, onPress, disabled = false }: Props) => {
   const styles = StyleSheet.create({
     appBtn: {
       borderColor: Colors.white,
-      backgroundColor: Colors.blue,
-      // borderWidth: 2,
+      backgroundColor: disabled ? Colors.darkBeige : Colors.blue,
       paddingBottom: 10,
       paddingTop: 10,
       paddingLeft: 16,
@@ -27,7 +26,7 @@ const AppBotton = ({ content, onPress }: Props) => {
   })
 
   return (
-    <TouchableOpacity onPress={onPress} style={styles.appBtn}>
+    <TouchableOpacity disabled={disabled} onPress={onPress} style={styles.appBtn}>
       <Text style={styles.appBtn__text}>{content}</Text>
     </TouchableOpacity>
   )

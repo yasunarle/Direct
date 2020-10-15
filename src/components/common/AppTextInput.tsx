@@ -18,11 +18,18 @@ const ClossIcon = (props: IconProps) => {
 type Props = {
   value: string
   placeholder: string
+  isPassword?: boolean
   onChangeText: (value: string) => void
   onPressClossBtn: () => void
 }
 
-const AppTextInput = ({ value, placeholder, onChangeText, onPressClossBtn }: Props) => {
+const AppTextInput = ({
+  value,
+  placeholder,
+  onChangeText,
+  onPressClossBtn,
+  isPassword = false,
+}: Props) => {
   return (
     <View
       style={{
@@ -45,6 +52,7 @@ const AppTextInput = ({ value, placeholder, onChangeText, onPressClossBtn }: Pro
         }}
         value={value}
         onChangeText={onChangeText}
+        secureTextEntry={isPassword}
         placeholder={placeholder}
         placeholderTextColor={Colors.darkBeige}
       />

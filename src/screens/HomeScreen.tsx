@@ -10,6 +10,9 @@ import { dispatch, RootState } from '../store'
 // Constants
 import GlobalStyles from '../utils/constants/GlobalStyles'
 import { auth } from '../plugins/Firebase'
+// Components
+import AppSpacer from '../components/common/AppSpacer'
+import AppBotton from '../components/common/AppBotton'
 
 type Props = {
   navigation: StackNavigationProp<BottomTabParamList, 'Home'>
@@ -39,35 +42,13 @@ export default function HomeScreen({ navigation }: Props) {
   // }, [])
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Home</Text>
-      {authUser.isLoggedIn ? <Text>authUser: {authUser.name}</Text> : <Text>not Logged in</Text>}
-      <View
-        style={{
-          width: '100%',
-          height: 50,
-        }}
-      ></View>
-      <TouchableOpacity style={GlobalStyles.appBtn} onPress={handleLogOut}>
-        <Text style={GlobalStyles.appBtn__text}>Log Out</Text>
-      </TouchableOpacity>
-      <View
-        style={{
-          width: '100%',
-          height: 50,
-        }}
-      ></View>
-      <TouchableOpacity onPress={goNavigate}>
-        <Text>Settings page</Text>
-      </TouchableOpacity>
-      <View
-        style={{
-          width: '100%',
-          height: 50,
-        }}
-      ></View>
-      <TouchableOpacity style={GlobalStyles.appBtn} onPress={addDB}>
-        <Text style={GlobalStyles.appBtn__text}>Add DB</Text>
-      </TouchableOpacity>
+      {authUser.isLoggedIn ? (
+        <Text>AuthUser Name: {authUser.name}</Text>
+      ) : (
+        <Text>not Logged in</Text>
+      )}
+      <AppSpacer height={20} />
+      <AppBotton content="add data in firestore" onPress={addDB} />
     </View>
   )
 }
