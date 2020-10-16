@@ -6,7 +6,7 @@ building this Application...
 
 - React Native
 
--- React Navigation
+  - React Navigation
 
 - Expo
 
