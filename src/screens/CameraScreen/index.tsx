@@ -8,7 +8,8 @@ import {
   TextInput,
 } from 'react-native'
 import { Camera } from 'expo-camera'
-// Styles
+import MaskedView from '@react-native-community/masked-view'
+// Styles
 import styles from './styles'
 // Icons
 import { MaterialIcons } from '@expo/vector-icons'
