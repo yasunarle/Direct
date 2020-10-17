@@ -10,5 +10,5 @@ export default {
   borderGray: '#FFFFFF1A',
 
   backgroundGray: 'whitesmoke',
-  backgroundLightGray: '#373940',
+  backgroundLightNavy: '#373940',
 }

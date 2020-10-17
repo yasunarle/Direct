@@ -37,7 +37,7 @@ const AppTextInput = ({
         paddingLeft: 20,
         paddingRight: 20,
         borderRadius: 4,
-        backgroundColor: Colors.backgroundLightGray,
+        backgroundColor: Colors.backgroundLightNavy,
         flexDirection: 'row',
         alignItems: 'center',
       }}
