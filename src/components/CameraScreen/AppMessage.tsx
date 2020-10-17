@@ -39,7 +39,10 @@ const AppMessage = ({ item }: Props) => {
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    // opacity: 0.3,
+    // shadowOpacity: 1,
+  },
   content: {
     fontSize: 18,
     color: Colors.beige,
