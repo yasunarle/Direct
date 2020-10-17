@@ -6,7 +6,6 @@ import {
   FlatList,
   KeyboardAvoidingView,
   TextInput,
-  ScrollView,
 } from 'react-native'
 import { Camera } from 'expo-camera'
 // Styles
@@ -15,14 +14,13 @@ import styles from './styles'
 import { MaterialIcons } from '@expo/vector-icons'
 import { AntDesign } from '@expo/vector-icons'
 // Components
-import AppSpacer from '../../components/common/AppSpacer'
+// import AppSpacer from '../../components/common/AppSpacer'
 import TheTimer from '../../components/CameraScreen/TheTimer'
 import AppMessage from '../../components/CameraScreen/AppMessage'
 // Constants
 import Colors from '../../utils/constants/Colors'
 
 // Note: Setup Icon
-
 type IconProps = {
   // name: string
   // color: string
@@ -33,6 +31,7 @@ type IconProps = {
 const SendIcon = ({ onPress }: IconProps) => {
   return <MaterialIcons name="send" size={30} color={Colors.blue} onPress={onPress} />
 }
+
 const GoogleIcon = ({ onPress }: IconProps) => {
   return <AntDesign name="google" size={24} color="black" onPress={onPress} />
 }
@@ -58,8 +57,6 @@ enum PermissionStatus {
 
 type ICamera = Camera | null
 
-// Note: サンプル => components/SampleCameraScreen
-
 const CameraScreen = () => {
   // Note: State Camera
   const [hasPermission, setHasPermission] = useState(false)
@@ -68,7 +65,7 @@ const CameraScreen = () => {
   // Note: State Messages
   const [messageInput, setMessageInput] = useState('')
   const [messages, setMessages] = useState<IMessage[]>([])
-  // ref
+  // Note: ref
   let scrollViewRef: FlatList | null
 
   // Methods
@@ -107,9 +104,6 @@ const CameraScreen = () => {
     ])
   }, [])
   // Note: useEffect, Watching...
-  useEffect(() => {
-    scrollViewRef?.scrollToEnd({ animated: true })
-  }, [messages])
 
   if (hasPermission === false) {
     return <Text>No access to camera</Text>
@@ -130,13 +124,14 @@ const CameraScreen = () => {
           {/* Bottom Container */}
           <KeyboardAvoidingView style={styles.bottomContainer} behavior="padding">
             <FlatList
+              style={styles.messagesContainer}
               data={messages}
               renderItem={renderMessage}
-              style={{
-                height: 200,
-              }}
               ref={(ref) => {
                 scrollViewRef = ref
+              }}
+              onContentSizeChange={() => {
+                scrollViewRef?.scrollToEnd({ animated: true })
               }}
             />
             {/* Messenger Contaier */}

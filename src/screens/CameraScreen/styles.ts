@@ -11,6 +11,10 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: '100%',
   },
+  messagesContainer: {
+    maxHeight: 200,
+    paddingLeft: 20,
+  },
   messengerConatiner: {
     minHeight: 50,
     width: '100%',
