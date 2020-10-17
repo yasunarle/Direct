@@ -8,13 +8,12 @@ import AppWidthSpacer from '../common/AppWidthSpacer'
 import AppSpacer from '../common/AppSpacer'
 // Constants
 import Colors from '../../utils/constants/Colors'
+import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace'
 
 interface IMessage {
   id: string
   content: string
 }
-
-// Note: Setup
 
 type Props = {
   item: IMessage
@@ -22,22 +21,10 @@ type Props = {
 
 const AppMessage = ({ item }: Props) => {
   return (
-    <View key={item.id}>
-      <Text
-        style={{
-          fontSize: 18,
-          color: Colors.beige,
-        }}
-      >
-        {item.content}
-      </Text>
+    <View style={styles.container} key={item.id}>
+      <Text style={styles.content}>{item.content}</Text>
       <AppSpacer height={4} />
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-        }}
-      >
+      <View style={styles.toolsContainer}>
         {/* Google Translate */}
         <AntDesign name="google" size={24} color={Colors.blue} />
         <AppWidthSpacer width={4} />
@@ -50,4 +37,16 @@ const AppMessage = ({ item }: Props) => {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {},
+  content: {
+    fontSize: 18,
+    color: Colors.beige,
+  },
+  toolsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+})
 export default AppMessage
