@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 // Icons
 import { MaterialIcons } from '@expo/vector-icons'
@@ -8,7 +8,6 @@ import AppWidthSpacer from '../common/AppWidthSpacer'
 import AppSpacer from '../common/AppSpacer'
 // Constants
 import Colors from '../../utils/constants/Colors'
-import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace'
 
 interface IMessage {
   id: string
@@ -20,15 +19,43 @@ type Props = {
 }
 
 const AppMessage = ({ item }: Props) => {
+  console.log('--- AppMessage ---')
+  console.log(process.env.REACT_APP_GOOGLE_TRANSLATE_KEY)
+  const [sampleState, setSampleState] = useState(null)
+  const apiURL =
+    'https://script.google.com/macros/s/AKfycbzxDulFYd9rpgU6i7BLpjgrWKMt80Q7b0CT7JuHOL0xghFlmovj/exec'
+
+  // Note: Methods
+  const translateMessage = async () => {
+    // const translatedText = Translate('こんにちわ', {
+    //   from: 'ja',
+    //   to: 'en',
+    // }).then((res) => {
+    //   return res.text
+    // })
+    // console.log(translatedText)
+    // const res = await axios.get(apiURL, {
+    //   params: {
+    //     text: 'こんにちわ',
+    //     source: 'ja',
+    //     target: 'en',
+    //   },
+    // })
+    // console.log(res)
+  }
+
   return (
     <View style={styles.container} key={item.id}>
       <Text style={styles.content}>{item.content}</Text>
       <AppSpacer height={4} />
       <View style={styles.toolsContainer}>
         {/* Google Translate */}
-        <AntDesign name="google" size={24} color={Colors.blue} />
-        <AppWidthSpacer width={4} />
-        <Text style={{ color: Colors.beige }}>翻訳</Text>
+        <TouchableOpacity onPress={translateMessage}>
+          <AntDesign name="google" size={24} color={Colors.blue} />
+          <AppWidthSpacer width={4} />
+          <Text style={{ color: Colors.beige }}>翻訳</Text>
+        </TouchableOpacity>
+
         <AppWidthSpacer width={20} />
         {/* Stack My List */}
         <AntDesign name="download" size={24} color={Colors.white} />
