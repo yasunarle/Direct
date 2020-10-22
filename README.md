@@ -18,8 +18,6 @@ building this Application...
 
   - i18n
 
-- env
-
 - Global State
 
 - Opacity of message in CameraScreen

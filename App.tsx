@@ -8,8 +8,6 @@ import useCachedResources from './src/hooks/useCachedResources'
 import Navigation from './src/navigation'
 // Store
 import store from './src/store'
-// test
-import './src/plugins/GoogleTranslate'
 
 export default function App() {
   const isLoadingComplete = useCachedResources()
