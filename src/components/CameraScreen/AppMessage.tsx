@@ -19,30 +19,8 @@ type Props = {
 }
 
 const AppMessage = ({ item }: Props) => {
-  console.log('--- AppMessage ---')
-  console.log(process.env.REACT_APP_GOOGLE_TRANSLATE_KEY)
-  const [sampleState, setSampleState] = useState(null)
-  const apiURL =
-    'https://script.google.com/macros/s/AKfycbzxDulFYd9rpgU6i7BLpjgrWKMt80Q7b0CT7JuHOL0xghFlmovj/exec'
-
   // Note: Methods
-  const translateMessage = async () => {
-    // const translatedText = Translate('こんにちわ', {
-    //   from: 'ja',
-    //   to: 'en',
-    // }).then((res) => {
-    //   return res.text
-    // })
-    // console.log(translatedText)
-    // const res = await axios.get(apiURL, {
-    //   params: {
-    //     text: 'こんにちわ',
-    //     source: 'ja',
-    //     target: 'en',
-    //   },
-    // })
-    // console.log(res)
-  }
+  const translateMessage = async () => {}
 
   return (
     <View style={styles.container} key={item.id}>
