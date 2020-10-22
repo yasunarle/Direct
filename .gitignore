@@ -11,6 +11,5 @@ web-build/
 
 # env
 .env
-environment.js
 # macOS
 .DS_Store
