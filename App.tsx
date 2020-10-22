@@ -4,6 +4,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { Provider } from 'react-redux'
 // Hooks
 import useCachedResources from './src/hooks/useCachedResources'
+// i18n
+import I18nProvider from './src/i18n'
 // Navigation
 import Navigation from './src/navigation'
 // Store
@@ -18,7 +20,9 @@ export default function App() {
     // ノッチとかの処理をしてくれる
     <SafeAreaProvider>
       <Provider store={store}>
-        <Navigation />
+        <I18nProvider>
+          <Navigation />
+        </I18nProvider>
       </Provider>
       <StatusBar />
     </SafeAreaProvider>

@@ -12,11 +12,13 @@ building this Application...
 
 - firebase
 
-## should's
+- Google Translate ( Google App Script )
 
 - Localcalization
 
   - i18n
+
+## should's
 
 - Global State
 
