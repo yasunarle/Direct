@@ -12,6 +12,7 @@ import NotFoundScreen from '../screens/NotFoundScreen'
 import LoginScreen from '../screens/LoginScreen'
 import SignupScreen from '../screens/SignupScreen'
 import CameraScreen from '../screens/CameraScreen'
+import WebRTCScreen from '../screens/WebRTCScreen'
 // Store
 import { dispatch, RootState } from '../store'
 // Plugins
@@ -39,6 +40,7 @@ function RootNavigator() {
       )}
       <Stack.Screen name="Signup" component={SignupScreen} />
       <Stack.Screen name="Camera" component={CameraScreen} />
+      <Stack.Screen name="WebRTC" component={WebRTCScreen} />
       {/* <Stack.Screen name="Root" component={BottomTabNavigator} />
       <Stack.Screen name="Login" component={LoginScreen} /> */}
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />

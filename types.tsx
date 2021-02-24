@@ -10,6 +10,7 @@ export type RootStackParamList = {
   Login: undefined
   Signup: undefined
   Camera: undefined
+  WebRTC: undefined
   NotFound: undefined
 }
 

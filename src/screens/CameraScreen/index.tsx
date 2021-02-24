@@ -3,12 +3,13 @@ import {
   Text,
   View,
   TouchableOpacity,
+  SafeAreaView,
   FlatList,
   KeyboardAvoidingView,
   TextInput,
 } from 'react-native'
 import { Camera } from 'expo-camera'
-import MaskedView from '@react-native-community/masked-view'
+// import MaskedView from '@react-native-community/masked-view'
 // Styles
 import styles from './styles'
 // Icons
@@ -119,34 +120,36 @@ const CameraScreen = () => {
           setCameraRef(ref)
         }}
       >
-        <View style={styles.viewInCamera}>
-          {/* Top Container */}
-          <TheTimer />
-          {/* Bottom Container */}
-          <KeyboardAvoidingView style={styles.bottomContainer} behavior="padding">
-            <FlatList
-              style={styles.messagesContainer}
-              data={messages}
-              renderItem={renderMessage}
-              ref={(ref) => {
-                scrollViewRef = ref
-              }}
-              onContentSizeChange={() => {
-                scrollViewRef?.scrollToEnd({ animated: true })
-              }}
-            />
-            {/* Messenger Contaier */}
-            <View style={styles.messengerConatiner}>
-              <TextInput
-                style={styles.messengerContainer__input}
-                value={messageInput}
-                placeholder="message..."
-                onChangeText={(value) => setMessageInput(value)}
+        <SafeAreaView style={{ flex: 1 }}>
+          <View style={styles.viewInCamera}>
+            {/* Top Container */}
+            <TheTimer />
+            {/* Bottom Container */}
+            <KeyboardAvoidingView style={styles.bottomContainer} behavior="padding">
+              <FlatList
+                style={styles.messagesContainer}
+                data={messages}
+                renderItem={renderMessage}
+                ref={(ref) => {
+                  scrollViewRef = ref
+                }}
+                onContentSizeChange={() => {
+                  scrollViewRef?.scrollToEnd({ animated: true })
+                }}
               />
-              <SendIcon onPress={sendMessage} />
-            </View>
-          </KeyboardAvoidingView>
-        </View>
+              {/* Messenger Contaier */}
+              <View style={styles.messengerConatiner}>
+                <TextInput
+                  style={styles.messengerContainer__input}
+                  value={messageInput}
+                  placeholder="message..."
+                  onChangeText={(value) => setMessageInput(value)}
+                />
+                <SendIcon onPress={sendMessage} />
+              </View>
+            </KeyboardAvoidingView>
+          </View>
+        </SafeAreaView>
       </Camera>
     </View>
   )
