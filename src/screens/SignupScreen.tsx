@@ -25,11 +25,16 @@ const SignupScreen = ({ navigation }: Props) => {
   const handleGoCamera = () => {
     navigation.navigate('Camera')
   }
+  const handleGoWebRTC = () => {
+    navigation.navigate('WebRTC')
+  }
   return (
     <View style={styles.container}>
       <AppBotton content="login page" onPress={handleGoLogIn} />
       <Text>sign up screen</Text>
       <AppBotton content="Camera Screen" onPress={handleGoCamera} />
+      <Text>sign up screen</Text>
+      <AppBotton content="Web RTC Screen" onPress={handleGoWebRTC} />
     </View>
   )
 }
